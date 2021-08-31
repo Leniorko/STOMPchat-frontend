@@ -1,7 +1,7 @@
 <template>
   <h1>Chat page</h1>
   <div class="chat">
-    <message-list :messages="messages" />
+    <message-list :messages="messages" :currentUser="username" />
     <message-inputs @sendMessage="sendMessage" :newID="nextMessageID" />
   </div>
 </template>
@@ -77,6 +77,6 @@ export default defineComponent({
 .chat {
   max-width: 800px;
   margin: auto;
-  min-height: 100vh;
+  max-height: 100vh;
 }
 </style>

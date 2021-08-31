@@ -11,7 +11,7 @@
     <button
       class="message-send"
       @click="emitMessageSend()"
-      :disabled="newID === -1"
+      :disabled="newID < 0"
     >
       Send
     </button>
