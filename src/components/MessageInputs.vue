@@ -34,7 +34,7 @@ export default defineComponent({
 
   methods: {
     emitMessageSend() {
-      if (this.enteredMessage && this.enteredMessage.replace(" ", "")) {
+      if (this.enteredMessage && this.enteredMessage.replaceAll(" ", "")) {
         const newMessage: MessageModel = {
           id: this.newID,
           message: this.enteredMessage,

@@ -1,4 +1,5 @@
 <template>
+  <h1>Chat page</h1>
   <div class="chat">
     <message-list :messages="messages" />
     <message-inputs @sendMessage="sendMessage" :newID="nextMessageID" />
@@ -9,7 +10,7 @@
 import MessageInputs from "@/components/MessageInputs.vue";
 import MessageList from "@/components/MessagesList.vue";
 import { MessageModel, MessagesInit } from "@/models/ChatModels";
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import SockJS from "sockjs-client";
 import { Client, IStompSocket, StompSubscription } from "@stomp/stompjs";
 
@@ -23,6 +24,9 @@ export default defineComponent({
       sockJS: SockJS.prototype,
       stompClient: Client.prototype,
       stompSubscriptions: [StompSubscription.prototype],
+      username: computed(() => {
+        return this.$route.query.username as string;
+      }),
     };
   },
 
@@ -56,6 +60,7 @@ export default defineComponent({
 
   methods: {
     sendMessage(message: MessageModel) {
+      message.name = this.username;
       console.log(message);
       this.stompClient.publish({
         destination: "/send",

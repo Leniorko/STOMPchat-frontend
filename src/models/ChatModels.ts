@@ -1,7 +1,7 @@
 export interface MessageModel {
   id: number;
-  name?: String;
-  message: String;
+  name?: string;
+  message: string;
   nextID: number;
 }
 
