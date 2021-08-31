@@ -31,7 +31,9 @@ export default defineComponent({
   },
 
   created() {
-    const newSockJSConnection = new SockJS("http://localhost:9000/messaging");
+    const newSockJSConnection = new SockJS(
+      "https://stomp-chat.herokuapp.com/messaging"
+    );
     const newStompClient = new Client();
     newStompClient.webSocketFactory = () => newSockJSConnection as IStompSocket;
 

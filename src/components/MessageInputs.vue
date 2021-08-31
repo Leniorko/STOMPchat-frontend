@@ -8,7 +8,13 @@
       placeholder="Enter message"
       v-model="enteredMessage"
     />
-    <button class="message-send" @click="emitMessageSend()">Send</button>
+    <button
+      class="message-send"
+      @click="emitMessageSend()"
+      :disabled="newID === -1"
+    >
+      Send
+    </button>
   </div>
 </template>
 
