@@ -1,5 +1,8 @@
 # vue-chat
 
+Played with web sockets and built simple chat. Broken because heroku deleted all my projects.
+Backend logic is [here](https://github.com/Leniorko/STOMPchat-backend)
+
 ## Project setup
 ```
 npm install
